@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CONTOH KALKULATOR SEDERHANA</title>
+	<style>
+		body{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			background-color: bisque;
+		}
+		h3{
+			font-size: 23px;
+			font-family: times;
+			font-style: italic;
+			text-align: center;
+			color: white;
+		}
+		.content{
+			grid-template-columns: repeat(4, 1fr);
+			grid-gap: 10px;
+		    margin-bottom: 10px;
+			border: 2px solid black;
+			padding: 10px;
+			background-color: skyblue;
+			border-radius: 5px;
+		}
+		input{
+			height: 50px;
+			width: 290px;
+			border: 2px solid black;
+			border-radius: 10px;
+			margin-bottom: 20px;
+			font-size: 30px;
+			text-align: right;
+			padding: 0px;
+		}
+		button{
+			margin-bottom: 10px;
+			font-family: times;
+			font-size: 22px;
+            width: 70px;
+            height: 70px;
+            background-color: ;
+            border-radius: 5px;
+            border: 2px solid black;
+		}
+		.operator{
+			color: white;
+			background-color: palevioletred;
+		}
+		.semua{
+			width: 220px;
+		}
+
+
+	</style>
+</head>
+<body>
+     <div class="content">
+     	<h3>CALCULATOR</h3>
+     	<input type="text" name="inputan" id="inputan" readonly>
+     	<br>
+     	<button class="operator" onclick="hapussemua('')">AC</button>
+     	<button class="operator" onclick="delate('')">DEL</button>
+     	<button class="operator" onclick="nilai(',')">,</button>
+     	<button class="operator" onclick="nilai('/')">:</button>
+     	<br>
+     	<button class="number" onclick="nilai('7')">7</button>
+     	<button class="number" onclick="nilai('8')">8</button>
+     	<button class="number" onclick="nilai('9')">9</button>
+     	<button class="operator" onclick="nilai('*')">x</button>
+     	<br>
+     	<button class="number" onclick="nilai('4')">4</button>
+     	<button class="number" onclick="nilai('5')">5</button>
+     	<button class="number" onclick="nilai('6')">6</button>
+     	<button class="operator" onclick="nilai('-')">-</button>
+     	<br>
+     	<button class="number" onclick="nilai('3')">3</button>
+     	<button class="number" onclick="nilai('2')">2</button>
+     	<button class="number" onclick="nilai('1')">1</button>
+     	<button class="operator"onclick="nilai('+')">+</button>
+     	<br>
+     	<button class="number" onclick="nilai('0')">0</button>
+     	<button class="operator semua" onclick="hasil('=')">=</button>
+     <script>
+     	function hapussemua() {
+     		document.getElementById('inputan').value = '';
+     	}
+     	function nilai(value) {
+     		document.getElementById('inputan').value += value;
+     	}
+     	function delate() {
+     	    const display = document.getElementById('inputan');
+     	    display.value = display.value.slice(0,-1);
+     	}
+     	function hasil() {
+     		let display = document.getElementById('inputan');
+     		try{
+     			display.value = eval(display.value);
+     		}catch{
+     			display.value = 'ERROR';
+     	}
+     </script>
+     </div>
+</body>
+</html>
